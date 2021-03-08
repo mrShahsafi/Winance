@@ -1,0 +1,15 @@
+{%   extends 'base.html' %}
+{% block head %}
+    <title>Wallets list</title>
+{% endblock %}
+
+{% block content %}
+   {% if WalletList %}
+    {% for wallet in WalletList %}
+         wallet :
+        <a href="{{ wallet.get_absolute_url }}">
+            {{ wallet.name }}
+        </a>
+     {% endfor %}
+   {% endif %}
+{% endblock %}

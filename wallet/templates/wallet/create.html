@@ -1,0 +1,14 @@
+{%   extends 'base.html' %}
+{% block head %}
+    <title>create new wallet</title>
+{% endblock %}
+
+{% block content %}
+    <h1>create new wallet</h1>
+    <form method="post" >
+    {% for input in form %}
+        {{ input }}
+    {% endfor %}
+    <button type="submit">create</button>
+    </form>
+{% endblock %}

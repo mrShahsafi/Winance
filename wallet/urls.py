@@ -3,6 +3,8 @@ from .views import (
     WalletHome,
     WalletLists,
     WalletDetail,
+    WalletCreate,
+
 )
 app_name = 'wallet'
 
@@ -21,5 +23,12 @@ urlpatterns = [
          WalletDetail.as_view(),
          name='detail'
          )
+    ,
+    path('create/',
+         WalletCreate.as_view(),
+         name='create'
+         )
+    ,
+
 
 ]

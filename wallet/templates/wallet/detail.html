@@ -1,0 +1,36 @@
+{%   extends 'base.html' %}
+{% block head %}
+    <title>wallet's detail</title>
+{% endblock %}
+
+{% block content %}
+    {% if WalletDetail %}
+        {% for detail in WalletDetail %}
+    <h1 align="center">
+        wallet name : {{ detail.name }}
+    </h1>
+    <h2>
+        wallet created at : {{ detail.created_date }}
+    </h2>
+    <h2>
+        Total Income : {{ detail.income }}
+    </h2>
+            <form method="post" action="{% url 'wallet:detail' %}">
+                <input type="text" name="income">
+                    <button type="submit" name="income">update</button>
+            {% csrf_token %}
+            </form>
+    <h2>
+        Total Spent : {{ detail.spent }}
+    </h2>
+            <form method="post"  action="{% url 'wallet:detail' %}">
+                <input type="text" name="spent">
+                    <button type="submit" name="spent">update</button>
+            {% csrf_token %}
+            </form>
+    <h2>
+        Total wallet value : {{ detail.total_money }}
+    </h2>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
