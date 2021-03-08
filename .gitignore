@@ -147,3 +147,5 @@ dmypy.json
 # profiling data
 .prof
 
+#DevOps
+active.sh
