@@ -18,3 +18,5 @@ class Income(AbstractModel):
         verbose_name="the value of Income money",
         max_length=256,
     )
+    def __str__(self):
+        return f"{self.name} - {self.price}"

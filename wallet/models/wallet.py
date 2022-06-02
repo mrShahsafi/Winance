@@ -49,8 +49,6 @@ class Wallet(AbstractModel):
         self.slug = slugify(f"{name}-{pk}", allow_unicode=True)
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f"wallet:{self.name}"
 
     @property
     def balance(self):
@@ -70,3 +68,6 @@ class Wallet(AbstractModel):
         balance = income_total - spend_total
 
         return balance
+
+    def __str__(self):
+        return f"wallet:{self.name}"
