@@ -52,6 +52,11 @@ class Wallet(AbstractModel):
 
     @property
     def balance(self):
+        # this will calculate the balance of the wallet
+        # and will not calculate the investmnet money
+        # because investment money will not spent
+        # it remain in wallet but as INVESTMENT.
+
         income_dict = self.income_set.aggregate(Sum("price"))
         spend_dict = self.spend_set.aggregate(Sum("price"))
 
@@ -68,6 +73,30 @@ class Wallet(AbstractModel):
         balance = income_total - spend_total
 
         return balance
+
+    def __str__(self):
+        return f"wallet:{self.name}"
+
+    @property
+    def total_spends(self):
+        spend_dict = self.spend_set.aggregate(Sum("price"))
+
+        spend_total = spend_dict['price__sum']
+
+        return spend_total
+
+
+    @property
+    def remaining_cash(self):
+        # this function will calculate the current cash money
+        # that you can spend or store
+
+        invest_dict = self.invest_set.aggregate(Sum("price"))
+        
+        invest_total = invest_dict['price__sum']
+        balance = self.balance
+        remaining_cash = balance - invest_total
+        return remaining_cash
 
     def __str__(self):
         return f"wallet:{self.name}"

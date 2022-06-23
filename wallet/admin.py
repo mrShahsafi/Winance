@@ -4,11 +4,12 @@ from wallet.models import (
     Wallet,
     Income,
     Spend,
+    Invest,
 )
 
 
 @admin.register(Income)
-class IncomeAdmin(admin.ModelAdmin):
+class InvestAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
 
@@ -17,6 +18,20 @@ class IncomeAdmin(admin.ModelAdmin):
 
 class IncomeTabularAdmin(admin.TabularInline):
     model = Income
+    extra = 1
+
+
+
+@admin.register(Invest)
+class InvestAdmin(admin.ModelAdmin):
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+
+        return qs.filter(wallet__user=request.user)
+
+
+class InvestTabularAdmin(admin.TabularInline):
+    model = Invest
     extra = 1
 
 
@@ -37,14 +52,17 @@ class SpendTabularAdmin(admin.TabularInline):
 class WalletAdmin(admin.ModelAdmin):
     list_display = [
         'name',
-        'user',
         'balance',
+        "total_spends",
+        "remaining_cash",
         "currency",
+
     ]
 
     inlines = [
         IncomeTabularAdmin,
         SpendTabularAdmin,
+        InvestTabularAdmin,
     ]
 
     def get_queryset(self, request):
