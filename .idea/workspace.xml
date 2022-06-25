@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13518ec6-791e-4e33-b2a2-371b91a71f47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Wainance.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Personal-Financial-Manager.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/models/.wallet.py.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/models/wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/models/wallet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/winance/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/winance/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/winance/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/winance/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="13518ec6-791e-4e33-b2a2-371b91a71f47" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

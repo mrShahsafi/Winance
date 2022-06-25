@@ -1,0 +1,70 @@
+schema {
+  query: Query
+}
+
+scalar DateTime
+
+type IncomeType {
+  id: ID!
+  name: String!
+  description: String!
+  createdDate: DateTime!
+  modifiedDate: DateTime!
+  isDeleted: Boolean!
+  wallet: WalletType!
+  price: Float!
+}
+
+type InvestmentType {
+  name: String!
+  description: String!
+  createdDate: DateTime!
+  modifiedDate: DateTime!
+  isDeleted: Boolean!
+  id: ID!
+  wallet: WalletType!
+  price: Float!
+}
+
+type Query {
+  wallet(id: ID!): WalletType
+  hello: String
+}
+
+type SpendType {
+  name: String!
+  description: String!
+  createdDate: DateTime!
+  modifiedDate: DateTime!
+  isDeleted: Boolean!
+  id: ID!
+  wallet: WalletType!
+  price: Float!
+}
+
+type UserType {
+  id: ID!
+  username: String!
+  firstName: String!
+  lastName: String!
+}
+
+enum WalletCurrency {
+  DOLLAR
+  TOMAN
+}
+
+type WalletType {
+  name: String!
+  description: String!
+  createdDate: DateTime!
+  id: ID!
+  user: UserType!
+  currency: WalletCurrency!
+  incomes: [IncomeType!]!
+  spends: [SpendType!]!
+  invests: [InvestmentType!]!
+  balance: Float
+  totalSpends: Float
+  remainingCash: Float
+}
