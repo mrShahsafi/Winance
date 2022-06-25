@@ -11,6 +11,9 @@ from wallet.models import (
 @admin.register(Income)
 class InvestAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
+
+        if request.user.is_superuser:
+            return super().get_queryset(request)
         qs = super().get_queryset(request)
 
         return qs.filter(wallet__user=request.user)
@@ -24,6 +27,8 @@ class IncomeTabularAdmin(admin.TabularInline):
 @admin.register(Invest)
 class InvestAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
+        if request.user.is_superuser:
+            return super().get_queryset(request)
         qs = super().get_queryset(request)
 
         return qs.filter(wallet__user=request.user)
@@ -37,6 +42,8 @@ class InvestTabularAdmin(admin.TabularInline):
 @admin.register(Spend)
 class SpendAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
+        if request.user.is_superuser:
+            return super().get_queryset(request)
         qs = super().get_queryset(request)
 
         return qs.filter(wallet__user=request.user)
@@ -64,6 +71,8 @@ class WalletAdmin(admin.ModelAdmin):
     ]
 
     def get_queryset(self, request):
+        if request.user.is_superuser:
+            return super().get_queryset(request)
         qs = super().get_queryset(request)
 
         return qs.filter(user=request.user)

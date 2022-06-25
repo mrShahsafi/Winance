@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13518ec6-791e-4e33-b2a2-371b91a71f47" name="Changes" comment="" />
+    <list default="true" id="13518ec6-791e-4e33-b2a2-371b91a71f47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/wallet/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/admin.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
