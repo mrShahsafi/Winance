@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from graphene_django.views import GraphQLView
+
 
 urlpatterns = [
     path("", admin.site.urls),
+    path("ql/", GraphQLView.as_view(graphiql=True)),
     # path("wallet/", include("wallet.urls")),
 ]

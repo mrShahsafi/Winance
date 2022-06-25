@@ -6,23 +6,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wallet', '0003_auto_20220602_0618'),
+        ("wallet", "0003_auto_20220602_0618"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='wallet',
-            name='currency',
-            field=models.CharField(choices=[('Dollar', '$'), ('Toman', 'T')], default='T', max_length=6),
+            model_name="wallet",
+            name="currency",
+            field=models.CharField(
+                choices=[("Dollar", "$"), ("Toman", "T")], default="T", max_length=6
+            ),
         ),
         migrations.AlterField(
-            model_name='income',
-            name='price',
-            field=models.FloatField(default=0.0, max_length=256, verbose_name='the value of Income money'),
+            model_name="income",
+            name="price",
+            field=models.FloatField(
+                default=0.0, max_length=256, verbose_name="the value of Income money"
+            ),
         ),
         migrations.AlterField(
-            model_name='spend',
-            name='price',
-            field=models.FloatField(default=0.0, max_length=256, verbose_name='the value of Spent money'),
+            model_name="spend",
+            name="price",
+            field=models.FloatField(
+                default=0.0, max_length=256, verbose_name="the value of Spent money"
+            ),
         ),
     ]

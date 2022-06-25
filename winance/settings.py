@@ -26,7 +26,7 @@ SECRET_KEY = "aw)zcus8+oewbx=5(=65sz*dyj@&a3!w#8gaw12%0th*r@scz5"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "wallet",
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,8 @@ STATIC_URL = "/static/"
 
 
 # AUTH_USER_MODEL = "u.BaseUser"
+
+
+# GRAPHQL
+
+GRAPHENE = {"SCHEMA": "graphql_api.schema.schema"}

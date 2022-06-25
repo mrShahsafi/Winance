@@ -21,7 +21,6 @@ class IncomeTabularAdmin(admin.TabularInline):
     extra = 1
 
 
-
 @admin.register(Invest)
 class InvestAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
@@ -51,12 +50,11 @@ class SpendTabularAdmin(admin.TabularInline):
 @admin.register(Wallet)
 class WalletAdmin(admin.ModelAdmin):
     list_display = [
-        'name',
-        'balance',
+        "name",
+        "balance",
         "total_spends",
         "remaining_cash",
         "currency",
-
     ]
 
     inlines = [
@@ -69,4 +67,3 @@ class WalletAdmin(admin.ModelAdmin):
         qs = super().get_queryset(request)
 
         return qs.filter(user=request.user)
-

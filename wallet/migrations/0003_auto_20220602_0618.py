@@ -7,50 +7,96 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wallet', '0002_wallet_user'),
+        ("wallet", "0002_wallet_user"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='wallet',
-            name='description',
-            field=models.CharField(default='no description', max_length=256),
+            model_name="wallet",
+            name="description",
+            field=models.CharField(default="no description", max_length=256),
         ),
         migrations.AlterField(
-            model_name='wallet',
-            name='name',
-            field=models.CharField(default='No Name', max_length=256),
+            model_name="wallet",
+            name="name",
+            field=models.CharField(default="No Name", max_length=256),
         ),
         migrations.CreateModel(
-            name='Spend',
+            name="Spend",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='No Name', max_length=256)),
-                ('description', models.CharField(default='no description', max_length=256)),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('modified_date', models.DateTimeField(auto_now=True)),
-                ('is_deleted', models.BooleanField(default=False)),
-                ('price', models.FloatField(default=0.0, max_length=256, verbose_name='the value of income money')),
-                ('wallet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='wallet.wallet')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="No Name", max_length=256)),
+                (
+                    "description",
+                    models.CharField(default="no description", max_length=256),
+                ),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("modified_date", models.DateTimeField(auto_now=True)),
+                ("is_deleted", models.BooleanField(default=False)),
+                (
+                    "price",
+                    models.FloatField(
+                        default=0.0,
+                        max_length=256,
+                        verbose_name="the value of income money",
+                    ),
+                ),
+                (
+                    "wallet",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="wallet.wallet"
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Income',
+            name="Income",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='No Name', max_length=256)),
-                ('description', models.CharField(default='no description', max_length=256)),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('modified_date', models.DateTimeField(auto_now=True)),
-                ('is_deleted', models.BooleanField(default=False)),
-                ('price', models.FloatField(default=0.0, max_length=256, verbose_name='the value of spent money')),
-                ('wallet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='wallet.wallet')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="No Name", max_length=256)),
+                (
+                    "description",
+                    models.CharField(default="no description", max_length=256),
+                ),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("modified_date", models.DateTimeField(auto_now=True)),
+                ("is_deleted", models.BooleanField(default=False)),
+                (
+                    "price",
+                    models.FloatField(
+                        default=0.0,
+                        max_length=256,
+                        verbose_name="the value of spent money",
+                    ),
+                ),
+                (
+                    "wallet",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="wallet.wallet"
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

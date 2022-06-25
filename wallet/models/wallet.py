@@ -15,9 +15,8 @@ from .base import AbstractModel
 User = get_user_model()
 
 CURRENCIES = (
-    ("Dollar","$"),
-    ("Toman","T"),
-
+    ("Dollar", "$"),
+    ("Toman", "T"),
 )
 
 
@@ -49,7 +48,6 @@ class Wallet(AbstractModel):
         self.slug = slugify(f"{name}-{pk}", allow_unicode=True)
         super().save(*args, **kwargs)
 
-
     @property
     def balance(self):
         # this will calculate the balance of the wallet
@@ -60,8 +58,8 @@ class Wallet(AbstractModel):
         income_dict = self.income_set.aggregate(Sum("price"))
         spend_dict = self.spend_set.aggregate(Sum("price"))
 
-        income_total = income_dict['price__sum']
-        spend_total = spend_dict['price__sum']
+        income_total = income_dict["price__sum"]
+        spend_total = spend_dict["price__sum"]
 
         if income_total is None and spend_total is None:
             return 0
@@ -81,10 +79,10 @@ class Wallet(AbstractModel):
     def total_spends(self):
         spend_dict = self.spend_set.aggregate(Sum("price"))
 
-        spend_total = spend_dict['price__sum']
-
+        spend_total = spend_dict["price__sum"]
+        if spend_total is None:
+            spend_total = 0.0
         return spend_total
-
 
     @property
     def remaining_cash(self):
@@ -92,9 +90,13 @@ class Wallet(AbstractModel):
         # that you can spend or store
 
         invest_dict = self.invest_set.aggregate(Sum("price"))
-        
-        invest_total = invest_dict['price__sum']
+
+        invest_total = invest_dict["price__sum"]
+        if invest_total is None:
+            invest_total = 0.0
         balance = self.balance
+        if balance is None:
+            balance = 0.0
         remaining_cash = balance - invest_total
         return remaining_cash
 

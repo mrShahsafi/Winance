@@ -8,7 +8,7 @@ from .base import AbstractModel
 
 
 class Spend(AbstractModel):
-    wallet =  ForeignKey(
+    wallet = ForeignKey(
         "Wallet",
         on_delete=CASCADE,
     )
