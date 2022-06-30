@@ -24,6 +24,6 @@ admin.site.index_title = f"Welcome to {SITE_NAME} Portal"
 
 urlpatterns = [
     path("", admin.site.urls),
-    path("ql/", GraphQLView.as_view(graphiql=True)),
+    path("ql-query/", GraphQLView.as_view(graphiql=True)),
     # path("wallet/", include("wallet.urls")),
 ]
